@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../..//shared/assets/fonts/Montserrat-Regular.woff");
+}
+
+@font-face {
+  font-family: "Jaro";
+  src: url("../..//shared/assets/fonts/Jaro-Regular.woff");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  font-family: Montserrat;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  padding-inline: 10px;
+}
+
+a.link__active {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+main,
+header {
+  max-width: 1200px;
+  margin-inline: auto;
+
+  h1 {
+    text-align: center;
+    font-size: 28px;
+  }
+}
+
+button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  outline: none;
+}
