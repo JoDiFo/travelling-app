@@ -11,6 +11,7 @@ const cardData: RouteCardProps[] = [
     duration: "4,5 часа",
     guide: "Симон Кирилл",
     cost: 24,
+    isFavorite: false,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const cardData: RouteCardProps[] = [
     duration: "4,5 часа",
     guide: "Симон Кирилл",
     cost: 24,
+    isFavorite: false,
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ const cardData: RouteCardProps[] = [
     duration: "4,5 часа",
     guide: "Симон Кирилл",
     cost: 24,
+    isFavorite: false,
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ const cardData: RouteCardProps[] = [
     duration: "4,5 часа",
     guide: "Симон Кирилл",
     cost: 24,
+    isFavorite: false,
   },
 ];
 

@@ -9,6 +9,7 @@ export interface RouteCardProps {
   duration: string;
   guide: string;
   cost: number;
+  isFavorite: boolean;
 }
 
 export function RouteCard({
@@ -18,6 +19,7 @@ export function RouteCard({
   duration,
   guide,
   cost,
+  isFavorite,
 }: RouteCardProps) {
   return (
     <div className={styles.card}>
@@ -40,7 +42,7 @@ export function RouteCard({
         <p className={styles.cost}>{cost} BYN</p>
       </div>
       <div>
-        <Button>В избранное</Button>
+        <Button>{isFavorite ? "Удалить" : "В избранное"}</Button>
         <Button color="yellow">Забронировать</Button>
       </div>
     </div>
