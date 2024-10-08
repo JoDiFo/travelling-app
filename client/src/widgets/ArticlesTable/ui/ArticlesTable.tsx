@@ -9,7 +9,7 @@ interface ArticlesTableProps {
 export function ArticlesTable({ articles }: ArticlesTableProps) {
   const navigate = useNavigate();
   const handleArticleClick = (id: number) => () => {
-    navigate(PAGE_ROUTES.ARTICLES, { state: { articleId: id } });
+    navigate(PAGE_ROUTES.TRAVEL_ROUTES, { state: { articleId: id } });
   };
 
   return (

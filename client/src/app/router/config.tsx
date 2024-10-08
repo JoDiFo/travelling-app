@@ -1,5 +1,5 @@
-import { Article } from "@/pages/Article";
-import { CreateArticle } from "@/pages/CreateArticle";
+import { TravelRoute } from "@/pages/TravelRoute";
+import { CreateRoute } from "@/pages/CreateRoute";
 import { Favorites } from "@/pages/Favorites";
 import { Home } from "@/pages/Home";
 import { Profile } from "@/pages/Profile";
@@ -7,17 +7,17 @@ import { SignIn } from "@/pages/SignIn";
 import { SignUp } from "@/pages/SignUp";
 import { PAGE_ROUTES } from "@/shared/utils/constants";
 
-const { ARTICLES, CREATE_ARTICLE, FAVORITES, HOME, PROFILE, SIGNIN, SIGNUP } =
+const { TRAVEL_ROUTES, CREATE_ROUTE, FAVORITES, HOME, PROFILE, SIGNIN, SIGNUP } =
   PAGE_ROUTES;
 
 export const roteMap = [
   {
-    path: ARTICLES,
-    element: <Article />,
+    path: TRAVEL_ROUTES,
+    element: <TravelRoute />,
   },
   {
-    path: CREATE_ARTICLE,
-    element: <CreateArticle />,
+    path: CREATE_ROUTE,
+    element: <CreateRoute />,
   },
   {
     path: FAVORITES,

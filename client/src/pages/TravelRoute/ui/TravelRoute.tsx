@@ -8,7 +8,7 @@ import { Comments } from "@/widgets/Comments";
 
 import { useNavigate } from "react-router-dom";
 
-export function Article() {
+export function TravelRoute() {
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1);

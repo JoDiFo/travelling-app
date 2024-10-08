@@ -1,6 +1,6 @@
 export const PAGE_ROUTES = {
-  ARTICLES: "/articles",
-  CREATE_ARTICLE: "/articles/create",
+  TRAVEL_ROUTES: "/routes",
+  CREATE_ROUTE: "/routes/create",
   FAVORITES: "/favorites",
   HOME: "/",
   PROFILE: "/profile",

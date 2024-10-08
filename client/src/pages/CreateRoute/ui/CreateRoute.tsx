@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 import { Keyword } from "@/shared/ui/Keyword";
 import FileIcon from "@/shared/assets/File.svg";
 
-export function CreateArticle() {
+export function CreateRoute() {
   return (
     <main className={styles.articlesPage}>
       <h1>Новая статья</h1>

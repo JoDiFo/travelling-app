@@ -23,7 +23,7 @@ export function Profile() {
       <ArticlesTable articles={articles} />
       <div className={styles.pagination}>
         <Pagination />
-        <Link to={PAGE_ROUTES.CREATE_ARTICLE}>
+        <Link to={PAGE_ROUTES.CREATE_ROUTE}>
           <Button className={styles.button}>Новая статья</Button>
         </Link>
       </div>
