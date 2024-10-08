@@ -1,31 +1,16 @@
 .primaryButton {
   border-radius: 10px;
-  color: #fff;
+  color: #000;
   padding: 15px 35px;
-  font-size: 16px;
+  font-size: 18px;
   min-width: 180px;
+  border: none;
 }
 
 .blue {
-  background-color: #4164a4;
-  border: 3px solid #4164a4;
+  background-color: #69c6ff;
 }
 
 .yellow {
   background-color: #f6ce52;
-  border: 3px solid #f6ce52;
-}
-
-.red {
-  background-color: #ff4242;
-  border: 3px solid #ff4242;
-}
-
-.outline {
-  background-color: #fff;
-  color: #000;
-}
-
-.fill {
-  border: none;
 }

@@ -4,7 +4,6 @@ import FileIcon from "@/shared/assets/File.svg";
 
 import styles from "./style.module.scss";
 import { Keyword } from "@/shared/ui/Keyword";
-import { Comments } from "@/widgets/Comments";
 
 import { useNavigate } from "react-router-dom";
 
@@ -71,7 +70,6 @@ export function TravelRoute() {
           В избранное
         </Button>
       </div>
-      <Comments />
     </main>
   );
 }

@@ -1,0 +1,31 @@
+.card {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-size: 18px;
+
+  h3 {
+    font-size: 24px;
+  }
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+
+  span {
+    font-weight: 700;
+  }
+
+  .cost {
+    font-weight: bold;
+    font-size: 24px;
+  }
+}
