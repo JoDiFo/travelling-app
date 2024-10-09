@@ -1,5 +1,6 @@
 import { Button } from "@/shared/ui/Button";
 import styles from "./style.module.scss";
+import { Keyword } from "@/shared/ui/Keyword";
 
 export interface RouteCardProps {
   id: number;
@@ -9,7 +10,9 @@ export interface RouteCardProps {
   duration: string;
   guide: string;
   cost: number;
-  isFavorite: boolean;
+  isFavorite?: boolean;
+  isBooked?: boolean;
+  date?: string;
 }
 
 export function RouteCard({
@@ -19,7 +22,9 @@ export function RouteCard({
   duration,
   guide,
   cost,
-  isFavorite,
+  isFavorite = false,
+  isBooked = false,
+  date = "",
 }: RouteCardProps) {
   return (
     <div className={styles.card}>
@@ -39,12 +44,17 @@ export function RouteCard({
             <span>Гид:</span> {guide}
           </p>
         </div>
-        <p className={styles.cost}>{cost} BYN</p>
+        <div className={isBooked ? styles.right : styles.notBooked}>
+          {isBooked && <Keyword>{date}</Keyword>}
+          <p className={styles.cost}>{cost} BYN</p>
+        </div>
       </div>
-      <div>
-        <Button>{isFavorite ? "Удалить" : "В избранное"}</Button>
-        <Button color="yellow">Забронировать</Button>
-      </div>
+      {!isBooked && (
+        <div>
+          <Button>{isFavorite ? "Удалить" : "В избранное"}</Button>
+          <Button color="yellow">Забронировать</Button>
+        </div>
+      )}
     </div>
   );
 }

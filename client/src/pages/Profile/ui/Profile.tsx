@@ -1,17 +1,59 @@
+import { RouteCardProps } from "@/widgets/RouteCard";
+import { CardContainer } from "@/widgets/CardContainer";
 import styles from "./style.module.scss";
-import { Button } from "@/shared/ui/Button";
-import { Link } from "react-router-dom";
-import { PAGE_ROUTES } from "@/shared/utils/constants";
+
+const cardData: RouteCardProps[] = [
+  {
+    id: 1,
+    title: "Великолепная троица",
+    type: "Пеший",
+    region: "Минск",
+    duration: "4,5 часа",
+    guide: "Симон Кирилл",
+    cost: 24,
+    isBooked: true,
+    date: "19/02",
+  },
+  {
+    id: 2,
+    title: "Великолепная троица",
+    type: "Пеший",
+    region: "Минск",
+    duration: "4,5 часа",
+    guide: "Симон Кирилл",
+    cost: 24,
+    isBooked: true,
+    date: "19/02",
+  },
+  {
+    id: 3,
+    title: "Великолепная троица",
+    type: "Пеший",
+    region: "Минск",
+    duration: "4,5 часа",
+    guide: "Симон Кирилл",
+    cost: 24,
+    isBooked: true,
+    date: "19/02",
+  },
+  {
+    id: 4,
+    title: "Великолепная троица",
+    type: "Пеший",
+    region: "Минск",
+    duration: "4,5 часа",
+    guide: "Симон Кирилл",
+    cost: 24,
+    isBooked: true,
+    date: "19/02",
+  },
+];
 
 export function Profile() {
   return (
     <main className={styles.homePage}>
-      <h1>Мои статьи</h1>
-      <div className={styles.pagination}>
-        <Link to={PAGE_ROUTES.CREATE_ROUTE}>
-          <Button className={styles.button}>Новая статья</Button>
-        </Link>
-      </div>
+      <h1>Забронированные маршруты</h1>
+      <CardContainer cardData={cardData} />
     </main>
   );
 }
