@@ -1,23 +1,42 @@
-# Archive of Scientific Articles
+# TRAVEL-APP
 ### API
-#### Authentication
-- ```POST   /auth/login {email, password} -> UUID```
-- ```POST   /auth/sing-up {name, surname, email, password} -> UUID```
+GET /routes -> Route[] // get all routes for all users
+GET /routes/:routeId -> Route // get a detailed info about rote
+GET /routes/booking/:userId -> Route[]
+POST /routes/booking {userId: number} -> Route[]
+POST /routes Route -> Route (admin) // create route (availivle only for admins)
 
-#### Articles
-- ```GET    /articles?page=1&limit=10 (Opt.: q)```
-- ```GET    /articles/{UUID} -> [title, annotation, blob, author, sci_area, keywords[]]```
-- ```POST   /articles        -> [title, annotation, blob, author, sci_area, keywords[]] -> UUID```
-- ```PATCH  /articles/{UUID} -> [title, annotation, blob, author, disciplines, keywords[]]```
-- ```DELETE /articles/{UUID}```
+GET /favorites/:userId -> Route[] // get favorite routes for the user
 
-#### Favorites
-- ```GET    /favorites/{UUID}?page=1&limit=10 (Opt.: q -> article[]```
-- ```POST   /favorites/{UUID}/article/{UUID}```
+PUT /favorites {routeId, userId} -> status 200 // put route to favorites
 
-#### Users
-- ```GET    /users/{UUID}```
+POST /auth/register {email: string, password: string} -> JWT (USER)
+POST /auth/login {email: string, password: string} -> JWT (USER)
 
-#### Comments
-- ```GET    /comments/{ARTICLE_UUID} -> comments[]```
-- ```POST   /comments/{ARTICLE_UUID} -> [author, text, creates_at]```
+GET /guides -> Guide (ADMIN)
+POST /guides Guide
+
+Route {
+title: string
+duration: number
+cost: number
+description: string
+category: string
+map: string
+guide:string
+region: string
+time: string[]
+}
+
+Guide {
+surname: string
+name: stirng
+patronymic: string
+phone: string
+}
+
+User {
+email: string
+password: string
+roles: string
+}
