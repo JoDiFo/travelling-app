@@ -10,8 +10,8 @@ GET /favorites/:userId -> Route[] // get favorite routes for the user
 
 PUT /favorites {routeId, userId} -> status 200 // put route to favorites
 
-POST /auth/register {email: string, password: string} -> JWT (USER)
-POST /auth/login {email: string, password: string} -> JWT (USER)
++ POST /auth/register {email: string, password: string} -> JWT (USER)
++ POST /auth/login {email: string, password: string} -> JWT (USER)
 
 GET /guides -> Guide (ADMIN)
 POST /guides Guide
