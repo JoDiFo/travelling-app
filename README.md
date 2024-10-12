@@ -10,8 +10,8 @@
 
 - PUT /favorites {routeId, userId} -> status 200 // put route to favorites
 
-- DONE: POST /auth/register {email: string, password: string} -> JWT (USER)
-- DONE: POST /auth/login {email: string, password: string} -> JWT (USER)
+- *DONE*: POST /auth/register {email: string, password: string} -> JWT (USER)
+- *DONE*: POST /auth/login {email: string, password: string} -> JWT (USER)
 
 - GET /guides -> Guide (ADMIN)
 - POST /guides Guide
