@@ -1,6 +1,9 @@
 import { Booking } from 'src/booking/booking.model';
 import { Favourite } from 'src/favourites/favourites.model';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany } from 'typeorm';
+import { Guide } from 'src/guides/guide.model';
+import { Map } from 'src/maps/maps.model';
+import { Region } from 'src/regions/regions.model';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, ManyToOne, OneToOne } from 'typeorm';
 
 @Entity()
 export class Route {
@@ -22,11 +25,14 @@ export class Route {
   @Column()
   category: string;
 
-  @Column()
-  guide: string;
+  @ManyToOne(() => Guide, guide => guide.routes)
+  guide: Guide;
 
-  @Column()
-  region: string;
+  @ManyToOne(() => Region, region => region.routes)
+  region: Region;
+
+  @ManyToOne(() => Map, region => region.routes)
+  map: Map;
 
   @Column('text', { array: true })
   time: string[];

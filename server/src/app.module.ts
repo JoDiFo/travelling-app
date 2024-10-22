@@ -8,12 +8,15 @@ import { RolesModule } from './roles/roles.module';
 import { UsersModule } from './users/users.module';
 import { FavouritesModule } from './favourites/favourites.module';
 import { Favourite } from './favourites/favourites.model';
-import { RoutesController } from './routes/routes.controller';
-import { RoutesService } from './routes/routes.service';
 import { RoutesModule } from './routes/routes.module';
 import { Route } from './routes/routes.model';
 import { BookingModule } from './booking/booking.module';
 import { Booking } from './booking/booking.model';
+import { GuidesModule } from './guides/guides.module';
+import { Guide } from './guides/guide.model';
+import { RegionsModule } from './regions/regions.module';
+import { MapsModule } from './maps/maps.module';
+import { Map } from './maps/maps.model';
 
 @Module({
   imports: [
@@ -24,7 +27,7 @@ import { Booking } from './booking/booking.model';
       username: 'postgres',
       password: 'postgres',
       database: 'postgres',
-      entities: [User, Role, Favourite, Route, Booking],
+      entities: [User, Role, Favourite, Route, Booking, Guide, Map],
       synchronize: true,
       autoLoadEntities: true
     }),
@@ -34,6 +37,9 @@ import { Booking } from './booking/booking.model';
     FavouritesModule,
     RoutesModule,
     BookingModule,
+    GuidesModule,
+    RegionsModule,
+    MapsModule,
   ],
   controllers: [AppController],
 })
