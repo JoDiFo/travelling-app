@@ -7,6 +7,7 @@ import { SignUp } from "@/pages/SignUp";
 import { TravelRoute } from "@/pages/TravelRoute";
 import { ProtectedRoute } from "@/shared/ui/ProtectedRoute";
 import { PAGE_ROUTES } from "@/shared/utils/constants";
+import { Header } from "@/widgets/Header";
 import { createBrowserRouter } from "react-router-dom";
 
 const {
@@ -34,23 +35,48 @@ export const router = (isAuthenticated: boolean) =>
       children: [
         {
           path: TRAVEL_ROUTES,
-          element: <TravelRoute />,
+          element: (
+            <>
+              <Header />
+              <TravelRoute />
+            </>
+          ),
         },
         {
           path: CREATE_ROUTE,
-          element: <CreateRoute />,
+          element: (
+            <>
+              <Header />
+              <CreateRoute />
+            </>
+          ),
         },
         {
           path: FAVORITES,
-          element: <Favorites />,
+          element: (
+            <>
+              <Header />
+              <Favorites />
+            </>
+          ),
         },
         {
           path: HOME,
-          element: <Home />,
+          element: (
+            <>
+              <Header />
+              <Home />
+            </>
+          ),
         },
         {
           path: PROFILE,
-          element: <Profile />,
+          element: (
+            <>
+              <Header />
+              <Profile />
+            </>
+          ),
         },
       ],
     },
