@@ -4,10 +4,10 @@ import { Favourite } from './favourites.model';
 import { FavouritesService } from './favourites.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/users/user.model';
-import { Article } from 'src/articles/articles.model';
+import { Route } from 'src/routes/routes.model';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Favourite, Article, User])],
+  imports: [TypeOrmModule.forFeature([Favourite, User, Route])],
   providers: [FavouritesService],
   controllers: [FavouritesController]
 })

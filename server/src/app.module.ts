@@ -4,14 +4,19 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Role } from './roles/roles.model';
 import { User } from './users/user.model';
 import { AuthModule } from './auth/auth.module';
-import { ArticlesModule } from './articles/articles.module';
 import { RolesModule } from './roles/roles.module';
 import { UsersModule } from './users/users.module';
-import { Article } from './articles/articles.model';
 import { FavouritesModule } from './favourites/favourites.module';
 import { Favourite } from './favourites/favourites.model';
-import { CommentsModule } from './comments/comments.module';
-import { Comment } from './comments/comments.model';
+import { RoutesModule } from './routes/routes.module';
+import { Route } from './routes/routes.model';
+import { BookingModule } from './booking/booking.module';
+import { Booking } from './booking/booking.model';
+import { GuidesModule } from './guides/guides.module';
+import { Guide } from './guides/guide.model';
+import { RegionsModule } from './regions/regions.module';
+import { MapsModule } from './maps/maps.module';
+import { Map } from './maps/maps.model';
 
 @Module({
   imports: [
@@ -22,16 +27,19 @@ import { Comment } from './comments/comments.model';
       username: 'postgres',
       password: 'postgres',
       database: 'postgres',
-      entities: [User, Role, Article, Favourite, Comment],
+      entities: [User, Role, Favourite, Route, Booking, Guide, Map],
       synchronize: true,
       autoLoadEntities: true
     }),
     AuthModule,
     RolesModule,
     UsersModule,
-    ArticlesModule,
     FavouritesModule,
-    CommentsModule,
+    RoutesModule,
+    BookingModule,
+    GuidesModule,
+    RegionsModule,
+    MapsModule,
   ],
   controllers: [AppController],
 })

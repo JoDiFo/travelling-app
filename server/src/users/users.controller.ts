@@ -17,10 +17,10 @@ export class UsersController {
 
     // @UseGuards(RolesGuard)
     // @Roles('admin')
-    @Get(':id')
-    async read(@Param('id') userId: string) {
-        return this.userService.read(userId);
-    }
+    // @Get(':id')
+    // async read(@Param('id') userId: string) {
+    //     return this.userService.read(userId);
+    // }
 
     // // @UseGuards(RolesGuard)
     // @Roles('admin')
