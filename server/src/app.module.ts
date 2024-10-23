@@ -23,10 +23,10 @@ import { Map } from './maps/maps.model';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
-      port: 3001,
+      port: 5432,
       username: 'postgres',
       password: 'postgres',
-      database: 'postgres',
+      database: 'travel_app',
       entities: [User, Role, Favourite, Route, Booking, Guide, Map],
       synchronize: true,
       autoLoadEntities: true
