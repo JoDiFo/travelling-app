@@ -55,23 +55,22 @@ export function SignUp() {
             placeholder="Введите логин"
             onChange={handleChange}
           />
-          <label htmlFor="password">Логин</label>
+          <label htmlFor="password">Введите пароль</label>
           <input
             id="password"
             name="password"
             type="text"
-            placeholder="Введите логин"
+            placeholder="Введите пароль"
             onChange={handleChange}
           />
-          <label htmlFor="repeatPassword">Логин</label>
+          <label htmlFor="repeatPassword">Повторите пароль</label>
           <input
             id="repeatPassword"
             name="repeatPassword"
             type="text"
-            placeholder="Введите логин"
+            placeholder="Повторите пароль"
             onChange={handleChange}
           />
-          <input type="text" placeholder="Введите пароль" />
           <Button type="submit" color="yellow">
             Создать
           </Button>
