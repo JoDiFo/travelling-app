@@ -1,6 +1,6 @@
 import { Button } from "@/shared/ui/Button";
 import styles from "./style.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { PAGE_ROUTES } from "@/shared/utils/constants";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { loginUser, useAppDispatch } from "@/app/redux";
@@ -18,6 +18,7 @@ const defaultData: FormData = {
 export function SignIn() {
   const [formData, setFormData] = useState<FormData>(defaultData);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -27,10 +28,13 @@ export function SignIn() {
   };
 
   const handleSubmit = (e: FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    dispatch(loginUser())
-  }
+    dispatch(loginUser(formData)).then(() => {
+      navigate(PAGE_ROUTES.HOME);
+      setFormData(defaultData);
+    });
+  };
 
   return (
     <main className={styles.page}>
