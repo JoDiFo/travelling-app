@@ -1,9 +1,10 @@
-import { RouteCard, RouteCardProps } from "@/widgets/RouteCard";
+import { RouteCard } from "@/widgets/RouteCard";
 
 import styles from "./style.module.scss";
+import { TravelRoute } from "@/entities/trabelRoute";
 
 interface CardContainerProps {
-  cardData: RouteCardProps[];
+  cardData: TravelRoute[];
 }
 
 export function CardContainer({ cardData }: CardContainerProps) {

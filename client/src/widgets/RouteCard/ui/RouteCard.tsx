@@ -1,30 +1,23 @@
 import { Button } from "@/shared/ui/Button";
 import styles from "./style.module.scss";
 import { Keyword } from "@/shared/ui/Keyword";
+import { TravelRoute } from "@/entities/trabelRoute";
 
-export interface RouteCardProps {
-  id: number;
-  title: string;
-  type: string;
-  region: string;
-  duration: string;
-  guide: string;
-  cost: number;
+export interface RouteCardProps extends TravelRoute {
   isFavorite?: boolean;
   isBooked?: boolean;
-  date?: string;
 }
 
 export function RouteCard({
   title,
-  type,
+  category,
   region,
   duration,
   guide,
   cost,
   isFavorite = false,
   isBooked = false,
-  date = "",
+  time,
 }: RouteCardProps) {
   return (
     <div className={styles.card}>
@@ -32,7 +25,7 @@ export function RouteCard({
       <div>
         <div>
           <p>
-            <span>Категория:</span> {type}
+            <span>Категория:</span> {category}
           </p>
           <p>
             <span>Регон:</span> {region}
@@ -45,7 +38,7 @@ export function RouteCard({
           </p>
         </div>
         <div className={isBooked ? styles.right : styles.notBooked}>
-          {isBooked && <Keyword>{date}</Keyword>}
+          {isBooked && <Keyword>{time}</Keyword>}
           <p className={styles.cost}>{cost} BYN</p>
         </div>
       </div>
