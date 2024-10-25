@@ -14,14 +14,6 @@ const initialState: UserState = {
   error: "",
 };
 
-export const getUser = createAsyncThunk(
-  "user/getUser",
-  async (userId: string) => {
-    const res = await UserService.getUser(userId);
-    return res.data;
-  }
-);
-
 export const registerUser = createAsyncThunk(
   "user/registerUser",
   async (registerData: RegisterData) => {
@@ -36,6 +28,7 @@ export const loginUser = createAsyncThunk(
   async (loginData: LoginData) => {
     const res = await UserService.login(loginData);
     const user: User = jwtDecode(res.data.token);
+    console.log(user);
     return user;
   }
 );
@@ -45,20 +38,6 @@ const userSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getUser.fulfilled, (state, action) => {
-      state.user = action.payload;
-      state.isLoading = false;
-    });
-
-    builder.addCase(getUser.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-    });
-
-    builder.addCase(getUser.pending, (state) => {
-      state.isLoading = true;
-    });
-
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.user = action.payload;
       state.isLoading = false;

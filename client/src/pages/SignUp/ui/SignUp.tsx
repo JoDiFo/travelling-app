@@ -6,13 +6,13 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { registerUser, useAppDispatch } from "@/app/redux";
 
 interface FormData {
-  login: string;
+  email: string;
   password: string;
   confirmPassword: string;
 }
 
 const defaultData: FormData = {
-  login: "",
+  email: "",
   password: "",
   confirmPassword: "",
 };
@@ -47,10 +47,10 @@ export function SignUp() {
       <div>
         <h1>Создание аккаунта</h1>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="login">Логин</label>
+          <label htmlFor="email">Логин</label>
           <input
-            id="login"
-            name="login"
+            id="email"
+            name="email"
             type="text"
             placeholder="Введите логин"
             onChange={handleChange}

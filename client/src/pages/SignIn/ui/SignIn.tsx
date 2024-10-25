@@ -6,12 +6,12 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { loginUser, useAppDispatch } from "@/app/redux";
 
 interface FormData {
-  login: string;
+  email: string;
   password: string;
 }
 
 const defaultData: FormData = {
-  login: "",
+  email: "",
   password: "",
 };
 
@@ -41,10 +41,10 @@ export function SignIn() {
       <div>
         <h1>Для продолжения необходимо войти в систему</h1>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="login">Логин</label>
+          <label htmlFor="email">Логин</label>
           <input
-            id="login"
-            name="login"
+            id="email"
+            name="email"
             type="text"
             placeholder="Введите логин"
             onChange={handleChange}

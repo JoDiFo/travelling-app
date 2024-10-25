@@ -3,12 +3,12 @@ export interface User {
 }
 
 export interface LoginData {
-  login: string;
+  email: string;
   password: string;
 }
 
 export interface RegisterData {
-  login: string;
+  email: string;
   password: string;
 }
 
