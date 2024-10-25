@@ -8,5 +8,5 @@ export interface TravelRoute {
   map: string;
   guide: string;
   region: string;
-  time: string[];
+  time: [string, string];
 }

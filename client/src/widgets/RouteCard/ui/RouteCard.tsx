@@ -38,7 +38,7 @@ export function RouteCard({
           </p>
         </div>
         <div className={isBooked ? styles.right : styles.notBooked}>
-          {isBooked && <Keyword>{time}</Keyword>}
+          {isBooked && <Keyword>{time[0]}-{time[1]}</Keyword>}
           <p className={styles.cost}>{cost} BYN</p>
         </div>
       </div>
