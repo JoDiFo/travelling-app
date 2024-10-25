@@ -1,5 +1,22 @@
 # TRAVEL-APP
-### API
+
+## HOW TO INSTALL
+Open your terminal and type `git clone https://github.com/JoDiFo/travelling-app.git`
+
+Then type `cd client` (or go to `travelling-app/client`), and run `npm install`. This will install all dependencies for client side.
+
+After that go to `travelling-app/server` and run `npm install`.
+
+**This is it. Now you are ready to start the app!**
+
+## HOW TO START THE APP
+Go to `travelling-app/client` and run `npm run dev`. This will start dev server for client.
+
+After that go to `travelling-app/server` and run `npm run start:dev`. This will start dev server for server.
+
+After that go to __http://localhost:5173__.
+
+## API
 - GET /routes -> Route[] // get all routes for all users
 - GET /routes/:routeId -> Route // get a detailed info about rote
 - GET /routes/booking/:userId -> Route[]
