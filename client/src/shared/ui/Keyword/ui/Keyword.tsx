@@ -3,14 +3,20 @@ import styles from "./style.module.scss";
 import classNames from "classnames";
 
 interface KeywordProps extends HtmlHTMLAttributes<HTMLParagraphElement> {
+  isSelected: boolean;
   children?: ReactNode;
   className?: string;
 }
 
 export function Keyword(props: KeywordProps) {
-  const { children, className, ...rest } = props;
+  const { children, className, isSelected, ...rest } = props;
   return (
-    <span className={classNames(className, styles.keyword)} {...rest}>
+    <span
+      className={classNames(className, styles.keyword, {
+        [styles.selected]: isSelected,
+      })}
+      {...rest}
+    >
       {children}
     </span>
   );

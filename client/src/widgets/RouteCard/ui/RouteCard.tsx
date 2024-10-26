@@ -43,7 +43,7 @@ export function RouteCard({
     <div className={styles.card}>
       {isModalOpen ? (
         <ModalWindow onClose={handleCloseModal}>
-          <BookRoute onSubmit={handleCloseModal} />
+          <BookRoute onSubmit={handleCloseModal} routeId={id} />
         </ModalWindow>
       ) : null}
       <h3>{title}</h3>

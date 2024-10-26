@@ -30,4 +30,12 @@ export class TravelRouteService {
   ): Promise<AxiosResponse<TravelRoute[]>> {
     return api.get(`/booking/${userId}`);
   }
+
+  static async bookRoute(
+    userId: string,
+    routeId: string,
+    time: string
+  ): Promise<void> {
+    return api.post("/booking", { userId, routeId, time });
+  }
 }

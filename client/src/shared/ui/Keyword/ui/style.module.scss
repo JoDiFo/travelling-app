@@ -3,4 +3,9 @@
   border-radius: 100px;
   color: #000;
   padding: 10px 20px;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #e59515 !important;
 }
