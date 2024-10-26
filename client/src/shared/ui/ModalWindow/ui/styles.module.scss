@@ -1,0 +1,10 @@
+.modalWindow {
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  background-color: #00000073;
+  display: grid !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 !important;
+}

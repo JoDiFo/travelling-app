@@ -1,0 +1,26 @@
+.bookModal {
+  background-color: #fff;
+  min-width: 500px;
+  width: 70%;
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-inline: auto;
+
+  h2 {
+    text-align: center;
+  }
+
+  .time {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .navBar {
+    display: flex;
+    justify-content: space-between;
+  }
+}

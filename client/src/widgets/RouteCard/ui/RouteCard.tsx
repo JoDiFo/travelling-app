@@ -5,6 +5,9 @@ import { TravelRoute, TravelRouteService } from "@/entities/trabelRoute";
 import { useAppSelector } from "@/app/redux";
 import { NotificationService } from "@/shared/utils/notificationService";
 import { UPDATE_TRAVEL_ROUTES_EVENT } from "@/shared/utils/constants";
+import { useState } from "react";
+import { ModalWindow } from "@/shared/ui/ModalWindow";
+import { BookRoute } from "@/widgets/BookRoute";
 
 export function RouteCard({
   id,
@@ -20,14 +23,29 @@ export function RouteCard({
 }: TravelRoute) {
   const userId = useAppSelector((state) => state.userSlice.user?.sub) as string;
 
+  const [isModalOpen, setModalOpen] = useState(false);
+
   const handleAddToFavorites = () => {
     TravelRouteService.addFavorite(userId, id).then(() => {
       NotificationService.dispatchEvent(UPDATE_TRAVEL_ROUTES_EVENT);
     });
   };
 
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <div className={styles.card}>
+      {isModalOpen ? (
+        <ModalWindow onClose={handleCloseModal}>
+          <BookRoute onSubmit={handleCloseModal} />
+        </ModalWindow>
+      ) : null}
       <h3>{title}</h3>
       <div>
         <div>
@@ -60,7 +78,9 @@ export function RouteCard({
           ) : (
             <Button onClick={handleAddToFavorites}>В избранное</Button>
           )}
-          <Button color="yellow">Забронировать</Button>
+          <Button color="yellow" onClick={handleOpenModal}>
+            Забронировать
+          </Button>
         </div>
       )}
     </div>
