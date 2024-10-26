@@ -19,7 +19,15 @@ export class TravelRouteService {
     return api.post(`/favourites/${userId}/route/${routeId}`);
   }
 
-  static async getFavorites(userId: string): Promise<AxiosResponse<TravelRoute[]>> {
+  static async getFavorites(
+    userId: string
+  ): Promise<AxiosResponse<TravelRoute[]>> {
     return api.get(`/favourites/${userId}`);
+  }
+
+  static async getBookedRoutes(
+    userId: string
+  ): Promise<AxiosResponse<TravelRoute[]>> {
+    return api.get(`/booking/${userId}`);
   }
 }
