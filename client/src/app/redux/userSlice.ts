@@ -1,4 +1,5 @@
 import { LoginData, RegisterData, User, UserService } from "@/entities/user";
+import { LOCAL_STORAGE_USER_KEY } from "@/shared/utils/constants";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { jwtDecode } from "jwt-decode";
 
@@ -28,19 +29,19 @@ export const loginUser = createAsyncThunk(
   async (loginData: LoginData) => {
     const res = await UserService.login(loginData);
     const user: User = jwtDecode(res.data.token);
-    console.log(user);
     return user;
   }
 );
 
 const userSlice = createSlice({
-  name: "user",
+  name: "userSlice",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.user = action.payload;
       state.isLoading = false;
+      localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(state.user));
     });
 
     builder.addCase(loginUser.rejected, (state, action) => {
@@ -55,6 +56,7 @@ const userSlice = createSlice({
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.user = action.payload;
       state.isLoading = false;
+      localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(state.user));
     });
 
     builder.addCase(registerUser.rejected, (state, action) => {

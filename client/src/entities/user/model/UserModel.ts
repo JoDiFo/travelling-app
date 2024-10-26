@@ -1,5 +1,6 @@
 export interface User {
-  id: string;
+  sub: string;
+  exp: number;
 }
 
 export interface LoginData {

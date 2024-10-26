@@ -2,15 +2,11 @@ import { router } from "@/app/router";
 import { RouterProvider } from "react-router-dom";
 
 import "@/app/styles/index.scss";
-import { useAppSelector } from "./redux";
-import { useMemo } from "react";
+import { selectCredentials, useAppSelector } from "./redux";
 
 export function App() {
-  const { error, isLoading, user } = useAppSelector((state) => state.user);
-
-  const provider = useMemo(() => {
-    return router(true);
-  }, [user]);
+  const { error, isLoading } = useAppSelector((state) => state.userSlice);
+  const isUserAuthorized = useAppSelector(selectCredentials);
 
   if (isLoading) {
     return "Loading...";
@@ -23,7 +19,7 @@ export function App() {
 
   return (
     <div className="app">
-      <RouterProvider router={provider} />
+      <RouterProvider router={router(isUserAuthorized)} />
     </div>
   );
 }
