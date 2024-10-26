@@ -13,7 +13,7 @@ export class BookingController {
   }
 
   @Post()
-  bookRoute(@Body() bookData : { userId: string, routeId: string }) {
+  bookRoute(@Body() bookData : { userId: string, routeId: string, time: string }) {
     return this.bookingService.bookRoute(bookData);
   }
 }
