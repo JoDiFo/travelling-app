@@ -2,11 +2,22 @@ import { router } from "@/app/router";
 import { RouterProvider } from "react-router-dom";
 
 import "@/app/styles/index.scss";
-import { selectCredentials, useAppSelector } from "./redux";
+import {
+  getUserFromMemo,
+  selectCredentials,
+  useAppDispatch,
+  useAppSelector,
+} from "./redux";
+import { useEffect } from "react";
 
 export function App() {
+  const dispatch = useAppDispatch();
   const { error, isLoading } = useAppSelector((state) => state.userSlice);
   const isUserAuthorized = useAppSelector(selectCredentials);
+
+  useEffect(() => {
+    dispatch(getUserFromMemo());
+  }, [dispatch]);
 
   if (isLoading) {
     return "Loading...";

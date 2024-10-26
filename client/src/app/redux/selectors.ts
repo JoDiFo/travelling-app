@@ -21,6 +21,5 @@ export const selectCredentials = createSelector(baseSelector, () => {
     return true;
   }
 
-  localStorage.removeItem(LOCAL_STORAGE_USER_KEY);
   return false;
 });

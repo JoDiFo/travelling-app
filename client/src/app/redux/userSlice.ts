@@ -36,7 +36,17 @@ export const loginUser = createAsyncThunk(
 const userSlice = createSlice({
   name: "userSlice",
   initialState,
-  reducers: {},
+  reducers: {
+    getUserFromMemo(state) {
+      const memo = localStorage.getItem(LOCAL_STORAGE_USER_KEY);
+      if (!memo) {
+        state.user = null;
+        return;
+      }
+
+      state.user = JSON.parse(memo);
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.user = action.payload;
@@ -71,3 +81,4 @@ const userSlice = createSlice({
 });
 
 export const userReducer = userSlice.reducer;
+export const { getUserFromMemo } = userSlice.actions;
