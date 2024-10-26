@@ -14,4 +14,8 @@ export class TravelRouteService {
   static async getRoutes(): Promise<AxiosResponse<TravelRoute[]>> {
     return api.get("/routes");
   }
+
+  static async addFavorite(userId: string, routeId: string): Promise<void> {
+    return api.post(`/favourites/${userId}/route/${routeId}`);
+  }
 }
