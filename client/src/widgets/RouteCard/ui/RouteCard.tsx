@@ -6,11 +6,6 @@ import { useAppSelector } from "@/app/redux";
 import { NotificationService } from "@/shared/utils/notificationService";
 import { UPDATE_TRAVEL_ROUTES_EVENT } from "@/shared/utils/constants";
 
-export interface RouteCardProps extends TravelRoute {
-  isFavorite?: boolean;
-  isBooked?: boolean;
-}
-
 export function RouteCard({
   id,
   title,
@@ -22,7 +17,7 @@ export function RouteCard({
   isFavorite = false,
   isBooked = false,
   time,
-}: RouteCardProps) {
+}: TravelRoute) {
   const userId = useAppSelector((state) => state.userSlice.user?.sub) as string;
 
   const handleAddToFavorites = () => {

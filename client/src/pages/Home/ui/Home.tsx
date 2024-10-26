@@ -4,13 +4,19 @@ import { useEffect, useState } from "react";
 import { TravelRoute, TravelRouteService } from "@/entities/trabelRoute";
 import { NotificationService } from "@/shared/utils/notificationService";
 import { UPDATE_TRAVEL_ROUTES_EVENT } from "@/shared/utils/constants";
+import { selectUser, useAppSelector } from "@/app/redux";
+import { mergeTravelRoutes } from "@/shared/utils/mergeTravelRoutes";
 
 export function Home() {
+  const userId = useAppSelector(selectUser)?.sub as string;
   const [travelRoutes, setTravelRoutes] = useState<TravelRoute[]>([]);
 
   const getTravelRoutes = async () => {
     const res = await TravelRouteService.getRoutes();
-    setTravelRoutes(res.data);
+    const favorites = await TravelRouteService.getFavorites(userId);
+
+    const updatedRoutes = mergeTravelRoutes(res.data, favorites.data);
+    setTravelRoutes(updatedRoutes);
   };
 
   useEffect(() => {
