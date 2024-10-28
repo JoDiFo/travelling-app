@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { Keyword } from "@/shared/ui/Keyword";
 import { TravelRouteService } from "@/entities/trabelRoute";
 import { selectUser, useAppSelector } from "@/app/redux";
+import { transformTime } from "@/shared/utils/transformTime";
 
 const times = [
   "19.01/13:00",
@@ -35,7 +36,7 @@ export function BookRoute({ onSubmit, routeId }: BookRouteProps) {
       return;
     }
 
-    TravelRouteService.bookRoute(userId, routeId, selected);
+    TravelRouteService.bookRoute(userId, routeId, transformTime(selected));
   };
 
   return (
