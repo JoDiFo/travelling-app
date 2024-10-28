@@ -7,10 +7,14 @@ import { NotificationService } from "@/shared/utils/notificationService";
 import { useState, useEffect } from "react";
 
 export function Profile() {
-  const userId = useAppSelector(selectUser)?.sub as string;
+  const userId = useAppSelector(selectUser)?.sub;
   const [travelRoutes, setTravelRoutes] = useState<TravelRoute[]>([]);
 
   const getTravelRoutes = async () => {
+    if (!userId) {
+      return;
+    }
+
     const res = await TravelRouteService.getBookedRoutes(userId);
 
     res.data.forEach((route) => (route.isBooked = true));

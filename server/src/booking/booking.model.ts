@@ -13,12 +13,12 @@ export class Booking {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @ManyToOne((type) => User, (user) => user.bookings)
-  // @JoinColumn({ name: "user_id" })
+  @ManyToOne((type) => User, (user) => user.id)
+  @JoinColumn({ name: "user_id" })
   user: User;
 
-  @ManyToOne((type) => Route, (route) => route.bookings)
-  // @JoinColumn({ name: "route_id" })
+  @ManyToOne((type) => Route, (route) => route.id)
+  @JoinColumn({ name: "route_id" })
   route: Route;
 
   @Column()

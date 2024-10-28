@@ -36,8 +36,6 @@ export class BookingService {
       time: bookData.time,
     });
 
-    console.log(book);
-
     return await this.bookingRepository.save(book);
   }
 
@@ -48,7 +46,9 @@ export class BookingService {
   async getRoutesForUser(userId: string) {
     const bookings = await this.bookingRepository.find({
       where: { user: { id: userId } },
+      relations: ["route"],
     });
+
     return bookings.map((booking) => booking.route);
   }
 
