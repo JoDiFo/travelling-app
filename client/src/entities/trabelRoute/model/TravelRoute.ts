@@ -25,3 +25,5 @@ export interface TravelRouteResponse {
   region: string;
   time: [string, string];
 }
+
+export type CreateRouteData = Omit<TravelRoute, "id">

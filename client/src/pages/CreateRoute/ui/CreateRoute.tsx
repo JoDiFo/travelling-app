@@ -2,29 +2,76 @@ import { Button } from "@/shared/ui/Button";
 import styles from "./style.module.scss";
 import { Keyword } from "@/shared/ui/Keyword";
 import FileIcon from "@/shared/assets/File.svg";
+import { CreateRouteData } from "@/entities/trabelRoute";
+import { ChangeEvent, FormEvent, useState } from "react";
+
+const initialData: CreateRouteData = {
+  title: "",
+  duration: 0,
+  cost: 0,
+  description: "",
+  category: "",
+  map: "",
+  guide: "",
+  region: "",
+  time: ["", ""],
+};
 
 export function CreateRoute() {
+  const [formData, setFormData] = useState<CreateRouteData>(initialData);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    setFormData(initialData);
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <main className={styles.articlesPage}>
       <h1>Новый маршрут</h1>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <div className={styles.inputCells}>
           <div className={styles.inputCell}>
             <label htmlFor="">Название</label>
-            <input type="text" placeholder="Введите данные" />
+            <input
+              type="text"
+              placeholder="Введите данные"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Длительность (часов)</label>
-            <input type="text" placeholder="Введите данные" />
+            <input
+              type="text"
+              placeholder="Введите данные"
+              name="duration"
+              value={formData.duration}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Цена (BYN)</label>
-            <input type="text" placeholder="Введите данные" />
+            <input
+              type="text"
+              placeholder="Введите данные"
+              name="cost"
+              value={formData.cost}
+              onChange={handleChange}
+              required
+            />
           </div>
         </div>
         <label htmlFor="">Файл со статьей (только pdf)</label>
         <div className={styles.fileDownload}>
-          <input type="file" accept=".pdf" />
+          <input type="image" />
           <img src={FileIcon} alt="file icon" />
         </div>
         <div className={styles.inputCells}>
@@ -60,8 +107,10 @@ export function CreateRoute() {
         </div>
 
         <div className={styles.buttons}>
-          <Button>Назад</Button>
-          <Button color="yellow">Создать</Button>
+          <Button type="button">Назад</Button>
+          <Button type="submit" color="yellow">
+            Создать
+          </Button>
         </div>
       </form>
     </main>

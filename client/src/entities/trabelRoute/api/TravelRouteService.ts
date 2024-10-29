@@ -1,9 +1,9 @@
 import { api } from "@/app/api";
-import { TravelRoute } from "../model/TravelRoute";
+import { TravelRoute, CreateRouteData } from "../model/TravelRoute";
 import { AxiosResponse } from "axios";
 
 export class TravelRouteService {
-  static async createRoute(travelRoute: TravelRoute): Promise<void> {
+  static async createRoute(travelRoute: CreateRouteData): Promise<void> {
     api.post("/routes", travelRoute);
   }
 
