@@ -9,11 +9,13 @@ import {
   useAppSelector,
 } from "./redux";
 import { useEffect } from "react";
+import { selectAdminRole } from "./redux";
 
 export function App() {
   const dispatch = useAppDispatch();
   const { error, isLoading } = useAppSelector((state) => state.userSlice);
   const isUserAuthorized = useAppSelector(selectCredentials);
+  const isAdmin = useAppSelector(selectAdminRole);
 
   useEffect(() => {
     dispatch(getUserFromMemo());
@@ -30,7 +32,7 @@ export function App() {
 
   return (
     <div className="app">
-      <RouterProvider router={router(isUserAuthorized)} />
+      <RouterProvider router={router(isUserAuthorized, isAdmin)} />
     </div>
   );
 }
