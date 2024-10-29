@@ -20,7 +20,7 @@ const {
   SIGNUP,
 } = PAGE_ROUTES;
 
-export const router = (isAuthenticated: boolean) =>
+export const router = (isAuthenticated: boolean, isAdmin: boolean) =>
   createBrowserRouter([
     {
       path: SIGNIN,
@@ -39,15 +39,6 @@ export const router = (isAuthenticated: boolean) =>
             <>
               <Header />
               <TravelRoute />
-            </>
-          ),
-        },
-        {
-          path: CREATE_ROUTE,
-          element: (
-            <>
-              <Header />
-              <CreateRoute />
             </>
           ),
         },
@@ -77,6 +68,20 @@ export const router = (isAuthenticated: boolean) =>
               <Profile />
             </>
           ),
+        },
+        {
+          element: <ProtectedRoute isAuthenticated={isAdmin} />,
+          children: [
+            {
+              path: CREATE_ROUTE,
+              element: (
+                <>
+                  <Header />
+                  <CreateRoute />
+                </>
+              ),
+            },
+          ],
         },
       ],
     },

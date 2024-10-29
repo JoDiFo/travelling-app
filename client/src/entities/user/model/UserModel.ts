@@ -1,6 +1,7 @@
 export interface User {
   sub: string;
   exp: number;
+  roles: string[];
 }
 
 export interface LoginData {

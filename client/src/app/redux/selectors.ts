@@ -23,3 +23,8 @@ export const selectCredentials = createSelector(baseSelector, () => {
 
   return false;
 });
+
+export const selectAdminRole = createSelector(baseSelector, (state) => {
+  const isAdmin = state.userSlice.user?.roles.includes("admin");
+  return isAdmin ? true : false;
+});

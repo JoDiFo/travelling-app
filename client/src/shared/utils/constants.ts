@@ -6,6 +6,7 @@ export const PAGE_ROUTES = {
   PROFILE: "/profile",
   SIGNIN: "/signin",
   SIGNUP: "/signup",
+  GUIDES: "/guides",
 } as const;
 
 export const UPDATE_TRAVEL_ROUTES_EVENT = "onTravelRouteUpdate";
