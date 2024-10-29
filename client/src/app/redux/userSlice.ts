@@ -46,6 +46,14 @@ const userSlice = createSlice({
 
       state.user = JSON.parse(memo);
     },
+
+    logout(state) {
+      state.error = initialState.error;
+      state.isLoading = initialState.isLoading;
+      state.user = initialState.user;
+
+      localStorage.removeItem(LOCAL_STORAGE_USER_KEY);
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(loginUser.fulfilled, (state, action) => {
@@ -81,4 +89,4 @@ const userSlice = createSlice({
 });
 
 export const userReducer = userSlice.reducer;
-export const { getUserFromMemo } = userSlice.actions;
+export const { getUserFromMemo, logout } = userSlice.actions;

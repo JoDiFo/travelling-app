@@ -1,7 +1,7 @@
 import { store } from "./store";
 import { useAppDispatch, useAppSelector } from "./hooks";
 import { selectCredentials, selectUser } from "./selectors";
-import { loginUser, registerUser, getUserFromMemo } from "./userSlice";
+import { loginUser, registerUser, getUserFromMemo, logout } from "./userSlice";
 
 export {
   store,
@@ -12,4 +12,5 @@ export {
   loginUser,
   registerUser,
   getUserFromMemo,
+  logout,
 };
