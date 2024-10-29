@@ -3,12 +3,19 @@ import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
 import { TravelRoute, TravelRouteService } from "@/entities/trabelRoute";
 import { NotificationService } from "@/shared/utils/notificationService";
-import { UPDATE_TRAVEL_ROUTES_EVENT } from "@/shared/utils/constants";
-import { selectUser, useAppSelector } from "@/app/redux";
+import {
+  PAGE_ROUTES,
+  UPDATE_TRAVEL_ROUTES_EVENT,
+} from "@/shared/utils/constants";
+import { selectAdminRole, selectUser, useAppSelector } from "@/app/redux";
 import { mergeTravelRoutes } from "@/shared/utils/mergeTravelRoutes";
+import { Button } from "@/shared/ui/Button";
+import { Link } from "react-router-dom";
 
 export function Home() {
   const userId = useAppSelector(selectUser)?.sub as string;
+  const isAdmin = useAppSelector(selectAdminRole);
+  const { CREATE_ROUTE } = PAGE_ROUTES;
   const [travelRoutes, setTravelRoutes] = useState<TravelRoute[]>([]);
 
   const getTravelRoutes = async () => {
@@ -38,6 +45,13 @@ export function Home() {
     <main className={styles.homePage}>
       <h1>Все маршруты</h1>
       <CardContainer cardData={travelRoutes} />
+      {isAdmin && (
+        <div className={styles.menu}>
+          <Button color="yellow">
+            <Link to={CREATE_ROUTE}>Добавить маршрут</Link>
+          </Button>
+        </div>
+      )}
     </main>
   );
 }
