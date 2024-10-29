@@ -2,8 +2,14 @@ import { Button } from "@/shared/ui/Button";
 import styles from "./style.module.scss";
 import { Keyword } from "@/shared/ui/Keyword";
 import FileIcon from "@/shared/assets/File.svg";
-import { CreateRouteData } from "@/entities/trabelRoute";
+import {
+  CreateRouteData,
+  RouteDataDto,
+  TravelRouteService,
+} from "@/entities/trabelRoute";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { NotificationService } from "@/shared/utils/notificationService";
+import { UPDATE_TRAVEL_ROUTES_EVENT } from "@/shared/utils/constants";
 
 const initialData: CreateRouteData = {
   title: "",
@@ -22,6 +28,10 @@ export function CreateRoute() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    TravelRouteService.createRoute(new RouteDataDto(formData)).then(() => {
+      NotificationService.dispatchEvent(UPDATE_TRAVEL_ROUTES_EVENT);
+    });
 
     setFormData(initialData);
   };
