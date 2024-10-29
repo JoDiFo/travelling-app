@@ -1,5 +1,6 @@
 import { CreateRoute } from "@/pages/CreateRoute";
 import { Favorites } from "@/pages/Favorites";
+import { Guides } from "@/pages/Guides";
 import { Home } from "@/pages/Home";
 import { Profile } from "@/pages/Profile";
 import { SignIn } from "@/pages/SignIn";
@@ -18,6 +19,7 @@ const {
   PROFILE,
   SIGNIN,
   SIGNUP,
+  GUIDES,
 } = PAGE_ROUTES;
 
 export const router = (isAuthenticated: boolean, isAdmin: boolean) =>
@@ -78,6 +80,15 @@ export const router = (isAuthenticated: boolean, isAdmin: boolean) =>
                 <>
                   <Header />
                   <CreateRoute />
+                </>
+              ),
+            },
+            {
+              path: GUIDES,
+              element: (
+                <>
+                  <Header />
+                  <Guides />
                 </>
               ),
             },

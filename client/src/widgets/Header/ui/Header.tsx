@@ -37,7 +37,7 @@ export function Header() {
             className={classNames({ link__active: path === GUIDES })}
             to={GUIDES}
           >
-            Добавить гида
+            Гиды
           </Link>
         )}
         <Link to="#">Помощь</Link>
