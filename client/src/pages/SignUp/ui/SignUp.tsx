@@ -54,6 +54,7 @@ export function SignUp() {
             type="text"
             placeholder="Введите логин"
             onChange={handleChange}
+            required
           />
           <label htmlFor="password">Введите пароль</label>
           <input
@@ -62,6 +63,7 @@ export function SignUp() {
             type="text"
             placeholder="Введите пароль"
             onChange={handleChange}
+            required
           />
           <label htmlFor="repeatPassword">Повторите пароль</label>
           <input
@@ -70,6 +72,7 @@ export function SignUp() {
             type="text"
             placeholder="Повторите пароль"
             onChange={handleChange}
+            required
           />
           <Button type="submit" color="yellow">
             Создать

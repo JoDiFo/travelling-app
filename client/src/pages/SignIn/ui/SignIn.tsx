@@ -48,6 +48,7 @@ export function SignIn() {
             type="text"
             placeholder="Введите логин"
             onChange={handleChange}
+            required
           />
           <label htmlFor="password">Пароль</label>
           <input
@@ -56,6 +57,7 @@ export function SignIn() {
             type="text"
             placeholder="Введите пароль"
             onChange={handleChange}
+            required
           />
           <Button color="yellow">Войти</Button>
         </form>
