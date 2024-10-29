@@ -6,40 +6,62 @@ import FileIcon from "@/shared/assets/File.svg";
 export function CreateRoute() {
   return (
     <main className={styles.articlesPage}>
-      <h1>Новая статья</h1>
+      <h1>Новый маршрут</h1>
       <form action="">
-        <label htmlFor="">Название статьи</label>
-        <input type="text" placeholder="Введите название статьи" />
-        <label htmlFor="">Аннотация к статье</label>
-        <input type="text" placeholder="Введите аннотацию к статье" />
+        <div className={styles.inputCells}>
+          <div className={styles.inputCell}>
+            <label htmlFor="">Название</label>
+            <input type="text" placeholder="Введите данные" />
+          </div>
+          <div className={styles.inputCell}>
+            <label htmlFor="">Длительность (часов)</label>
+            <input type="text" placeholder="Введите данные" />
+          </div>
+          <div className={styles.inputCell}>
+            <label htmlFor="">Цена (BYN)</label>
+            <input type="text" placeholder="Введите данные" />
+          </div>
+        </div>
         <label htmlFor="">Файл со статьей (только pdf)</label>
         <div className={styles.fileDownload}>
           <input type="file" accept=".pdf" />
           <img src={FileIcon} alt="file icon" />
         </div>
-        <div className={styles.bottomArea}>
-          <div>
-            <label htmlFor="">Автор статьи</label>
-            <input type="text" placeholder="Введите автора статьи" />
-            <label htmlFor="">Ключевые слова</label>
-            <input type="text" placeholder="Введите ключевое слово" />
+        <div className={styles.inputCells}>
+          <div className={styles.inputCell}>
+            <label htmlFor="">Категория</label>
+            <input type="text" placeholder="Выберите значение" />
           </div>
-          <div>
-            <label htmlFor="">Научная область статьи</label>
-            <input type="text" placeholder="Введите научную область статьи" />
-            <div className={styles.keywords}>
-              <Keyword>ключевое</Keyword>
-              <Keyword>ключевое</Keyword>
-              <Keyword>ключевое</Keyword>
-              <Keyword>ключевое</Keyword>
-              <Keyword>ключевое</Keyword>
-            </div>
+          <div className={styles.inputCell}>
+            <label htmlFor="">Регион</label>
+            <input type="text" placeholder="Выберите значение" />
+          </div>
+          <div className={styles.inputCell}>
+            <label htmlFor="">Карта маршрута</label>
+            <input type="text" placeholder="Выберите значение" />
+          </div>
+          <div className={styles.inputCell}>
+            <label htmlFor="">Гид</label>
+            <input type="text" placeholder="Выберите значение" />
+          </div>
+        </div>
+        <div className={styles.timeArea}>
+          <div className={styles.inputCell}>
+            <label htmlFor="">Даты бронирования</label>
+            <input type="text" placeholder="Введите данные" />
+          </div>
+          <div className={styles.keywords}>
+            <Keyword>ключевое</Keyword>
+            <Keyword>ключевое</Keyword>
+            <Keyword>ключевое</Keyword>
+            <Keyword>ключевое</Keyword>
+            <Keyword>ключевое</Keyword>
           </div>
         </div>
 
         <div className={styles.buttons}>
-          <Button>Отмена</Button>
-          <Button color="yellow">Опубликовать</Button>
+          <Button>Назад</Button>
+          <Button color="yellow">Создать</Button>
         </div>
       </form>
     </main>

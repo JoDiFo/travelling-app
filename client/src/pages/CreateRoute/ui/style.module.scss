@@ -8,12 +8,6 @@
     font-size: 28px;
   }
 
-  input,
-  label {
-    display: block;
-    width: 100%;
-  }
-
   label {
     font-size: 24px;
   }
@@ -21,8 +15,18 @@
   input {
     padding: 14px 20px;
     border-radius: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+  }
+
+  .inputCell {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+  }
+
+  .inputCells {
+    display: flex;
+    gap: 30px;
   }
 
   .fileDownload {
@@ -34,21 +38,18 @@
     margin-bottom: 20px;
   }
 
-  .bottomArea {
+  .timeArea {
     display: flex;
-    justify-content: space-between;
-
-    > div {
-      flex-basis: 48%;
-    }
+    gap: 30px;
+    align-items: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .keywords {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 40px;
   }
 
   .buttons {
