@@ -2,7 +2,7 @@ import { ReactNode, MouseEvent } from "react";
 import styles from "./styles.module.scss";
 
 interface ModalWindowProps {
-  children: ReactNode;
+  children?: ReactNode;
   onClose: () => void;
 }
 

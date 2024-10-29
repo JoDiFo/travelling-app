@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import { Guide } from "../model/Guide";
+import { Guide, GuideFormData } from "../model/Guide";
 import { api } from "@/app/api";
 
 export class GuideService {
@@ -7,7 +7,7 @@ export class GuideService {
     return api.get("/guides");
   }
 
-  static createGuide(guide: Omit<Guide, "id">): Promise<void> {
+  static createGuide(guide: GuideFormData): Promise<void> {
     return api.post("/guides", guide);
   }
 }

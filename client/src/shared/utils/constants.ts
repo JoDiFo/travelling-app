@@ -10,5 +10,6 @@ export const PAGE_ROUTES = {
 } as const;
 
 export const UPDATE_TRAVEL_ROUTES_EVENT = "onTravelRouteUpdate";
+export const UPDATE_GUIDES_EVENT = "onGuidesUpdate";
 
 export const LOCAL_STORAGE_USER_KEY = "user";

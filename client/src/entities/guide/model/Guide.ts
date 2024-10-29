@@ -5,3 +5,5 @@ export interface Guide {
   patronymic: string;
   phone: string;
 }
+
+export type GuideFormData = Omit<Guide, "id">;
