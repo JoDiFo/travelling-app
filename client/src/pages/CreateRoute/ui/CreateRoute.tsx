@@ -7,8 +7,8 @@ import { ChangeEvent, FormEvent, useState } from "react";
 
 const initialData: CreateRouteData = {
   title: "",
-  duration: 0,
-  cost: 0,
+  duration: "",
+  cost: "",
   description: "",
   category: "",
   map: "",

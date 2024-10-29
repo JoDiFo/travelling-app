@@ -26,4 +26,38 @@ export interface TravelRouteResponse {
   time: [string, string];
 }
 
-export type CreateRouteData = Omit<TravelRoute, "id">
+export interface CreateRouteData {
+  title: string;
+  duration: string;
+  cost: string;
+  description: string;
+  category: string;
+  map: string;
+  guide: string;
+  region: string;
+  time: [string, string];
+}
+
+export class RouteDataDto implements Omit<TravelRoute, "id"> {
+  title: string;
+  duration: number;
+  cost: number;
+  description: string;
+  category: string;
+  map: string;
+  guide: string;
+  region: string;
+  time: [string, string];
+
+  constructor(route: CreateRouteData) {
+    this.title = route.title;
+    this.duration = Number(route.duration);
+    this.cost = Number(route.cost);
+    this.description = route.description;
+    this.category = route.category;
+    this.map = route.map;
+    this.guide = route.guide;
+    this.region = route.region;
+    this.time = route.time;
+  }
+}
