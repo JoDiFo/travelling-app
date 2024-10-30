@@ -13,8 +13,10 @@ import {
   UPDATE_TRAVEL_ROUTES_EVENT,
   REGION_OPTIONS,
   CATEGORY_OPTIONS,
+  PAGE_ROUTES,
 } from "@/shared/utils/constants";
 import { Guide, GuideService } from "@/entities/guide";
+import { Link } from "react-router-dom";
 
 const initialData: CreateRouteData = {
   title: "",
@@ -214,7 +216,9 @@ export function CreateRoute() {
         </div>
 
         <div className={styles.buttons}>
-          <Button type="button">Назад</Button>
+          <Button type="button">
+            <Link to={PAGE_ROUTES.HOME}>Назад</Link>
+          </Button>
           <Button type="submit" color="yellow">
             Создать
           </Button>

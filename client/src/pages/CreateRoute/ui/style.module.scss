@@ -12,6 +12,11 @@
     font-size: 24px;
   }
 
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
   input,
   select {
     padding: 14px 20px;
