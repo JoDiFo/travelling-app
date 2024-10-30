@@ -56,7 +56,7 @@ export function RouteCard({
             <span>Регон:</span> {region.name}
           </p>
           <p>
-            <span>Длинтельность:</span> {duration}
+            <span>Длинтельность:</span> {duration} ч.
           </p>
           <p>
             <span>Гид:</span> {guide.name} {guide.surname} {guide.patronymic}
