@@ -4,10 +4,14 @@ import { Keyword } from "@/shared/ui/Keyword";
 import { TravelRoute, TravelRouteService } from "@/entities/trabelRoute";
 import { useAppSelector } from "@/app/redux";
 import { NotificationService } from "@/shared/utils/notificationService";
-import { UPDATE_TRAVEL_ROUTES_EVENT } from "@/shared/utils/constants";
+import {
+  PAGE_ROUTES,
+  UPDATE_TRAVEL_ROUTES_EVENT,
+} from "@/shared/utils/constants";
 import { useState } from "react";
 import { ModalWindow } from "@/shared/ui/ModalWindow";
 import { BookRoute } from "@/widgets/BookRoute";
+import { Link } from "react-router-dom";
 
 export function RouteCard({
   id,
@@ -41,6 +45,7 @@ export function RouteCard({
 
   return (
     <div className={styles.card}>
+      <Link to={PAGE_ROUTES.TRAVEL_ROUTES} state={id}></Link>
       {isModalOpen ? (
         <ModalWindow onClose={handleCloseModal}>
           <BookRoute onSubmit={handleCloseModal} routeId={id} />
