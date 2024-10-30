@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 @Entity({name: 'guides'})
 export class Guide {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string; 
 
   @Column()
   surname: string

@@ -56,7 +56,7 @@ export class RouteDataDto implements Omit<TravelRoute, "id"> {
     this.description = route.description;
     this.category = route.category;
     this.map = route.map;
-    this.guide = route.guide;
+    this.guide = route.guide.split(" ")[0];
     this.region = route.region;
     this.time = route.time;
   }
