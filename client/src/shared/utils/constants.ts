@@ -37,6 +37,19 @@ export const IMAGE_MAP = [
   },
 ];
 
+export const CATEGORY_OPTIONS: { value: string; title: string }[] = [
+  { value: "romance", title: "Romance" },
+  { value: "adventure", title: "Adventure" },
+  { value: "action", title: "Action" },
+  { value: "thriller", title: "Thriller" },
+];
+
+export const REGION_OPTIONS: { value: string; title: string }[] = [
+  { value: "minsk", title: "Minsk" },
+  { value: "gomel", title: "Gomel" },
+  { value: "brest", title: "Brest" },
+];
+
 export const UPDATE_TRAVEL_ROUTES_EVENT = "onTravelRouteUpdate";
 export const UPDATE_GUIDES_EVENT = "onGuidesUpdate";
 

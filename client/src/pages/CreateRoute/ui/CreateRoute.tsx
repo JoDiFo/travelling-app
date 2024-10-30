@@ -12,6 +12,8 @@ import { NotificationService } from "@/shared/utils/notificationService";
 import {
   IMAGE_MAP,
   UPDATE_TRAVEL_ROUTES_EVENT,
+  REGION_OPTIONS,
+  CATEGORY_OPTIONS,
 } from "@/shared/utils/constants";
 import { Guide, GuideService } from "@/entities/guide";
 
@@ -26,19 +28,6 @@ const initialData: CreateRouteData = {
   region: "",
   time: ["", ""],
 };
-
-const categoryOptions: { value: string; title: string }[] = [
-  { value: "romance", title: "Romance" },
-  { value: "adventure", title: "Adventure" },
-  { value: "action", title: "Action" },
-  { value: "thriller", title: "Thriller" },
-];
-
-const regionOptions: { value: string; title: string }[] = [
-  { value: "minsk", title: "Minsk" },
-  { value: "gomel", title: "Gomel" },
-  { value: "brest", title: "Brest" },
-];
 
 export function CreateRoute() {
   const [formData, setFormData] = useState<CreateRouteData>(initialData);
@@ -115,7 +104,7 @@ export function CreateRoute() {
           <div className={styles.inputCell}>
             <label htmlFor="">Категория</label>
             <select>
-              {categoryOptions.map(({ value, title }) => (
+              {CATEGORY_OPTIONS.map(({ value, title }) => (
                 <option key={value} value={value}>
                   {title}
                 </option>
@@ -125,7 +114,7 @@ export function CreateRoute() {
           <div className={styles.inputCell}>
             <label htmlFor="">Регион</label>
             <select>
-              {regionOptions.map(({ value, title }) => (
+              {REGION_OPTIONS.map(({ value, title }) => (
                 <option key={value} value={value}>
                   {title}
                 </option>
@@ -136,7 +125,9 @@ export function CreateRoute() {
             <label htmlFor="">Карта маршрута</label>
             <select>
               {IMAGE_MAP.map(({ id, title }) => (
-                <option key={id} value={id}>{title}</option>
+                <option key={id} value={id}>
+                  {title}
+                </option>
               ))}
             </select>
           </div>
