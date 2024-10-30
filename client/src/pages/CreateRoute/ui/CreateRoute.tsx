@@ -9,7 +9,10 @@ import {
 } from "@/entities/trabelRoute";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { NotificationService } from "@/shared/utils/notificationService";
-import { UPDATE_TRAVEL_ROUTES_EVENT } from "@/shared/utils/constants";
+import {
+  IMAGE_MAP,
+  UPDATE_TRAVEL_ROUTES_EVENT,
+} from "@/shared/utils/constants";
 import { Guide, GuideService } from "@/entities/guide";
 
 const initialData: CreateRouteData = {
@@ -131,7 +134,11 @@ export function CreateRoute() {
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Карта маршрута</label>
-            <select>{}</select>
+            <select>
+              {IMAGE_MAP.map(({ id, title }) => (
+                <option key={id} value={id}>{title}</option>
+              ))}
+            </select>
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Гид</label>
