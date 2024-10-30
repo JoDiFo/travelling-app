@@ -53,7 +53,7 @@ export function RouteCard({
             <span>Категория:</span> {category}
           </p>
           <p>
-            <span>Регон:</span> {region}
+            <span>Регон:</span> {region.name}
           </p>
           <p>
             <span>Длинтельность:</span> {duration}

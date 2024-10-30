@@ -9,7 +9,10 @@ export interface TravelRoute {
   category: string;
   map: string;
   guide: Guide;
-  region: string;
+  region: {
+    id: string;
+    name: string;
+  };
   time: string[];
   isFavorite?: boolean;
   isBooked?: boolean;
@@ -24,7 +27,10 @@ export interface TravelRouteResponse {
   category: string;
   map: string;
   guide: Guide;
-  region: string;
+  region: {
+    id: string;
+    name: string;
+  };
   time: string[];
 }
 
@@ -40,7 +46,7 @@ export interface CreateRouteData {
   time: string[];
 }
 
-export class RouteDataDto implements Omit<TravelRoute, "id" | "guide"> {
+export class RouteDataDto implements Omit<TravelRoute, "id" | "guide" | "region"> {
   title: string;
   duration: number;
   cost: number;
