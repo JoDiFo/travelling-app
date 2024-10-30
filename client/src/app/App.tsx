@@ -1,21 +1,12 @@
 import { router } from "@/app/router";
 import { RouterProvider } from "react-router-dom";
-
-import "@/app/styles/index.scss";
-import {
-  getUserFromMemo,
-  selectCredentials,
-  useAppDispatch,
-  useAppSelector,
-} from "./redux";
 import { useEffect } from "react";
-import { selectAdminRole } from "./redux";
+import { getUserFromMemo, useAppDispatch, useAppSelector } from "./redux";
+import "@/app/styles/index.scss";
 
 export function App() {
   const dispatch = useAppDispatch();
   const { error, isLoading } = useAppSelector((state) => state.userSlice);
-  const isUserAuthorized = useAppSelector(selectCredentials);
-  const isAdmin = useAppSelector(selectAdminRole);
 
   useEffect(() => {
     dispatch(getUserFromMemo());
@@ -32,7 +23,7 @@ export function App() {
 
   return (
     <div className="app">
-      <RouterProvider router={router(isUserAuthorized, isAdmin)} />
+      <RouterProvider router={router} />
     </div>
   );
 }

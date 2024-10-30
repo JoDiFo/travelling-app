@@ -22,82 +22,81 @@ const {
   GUIDES,
 } = PAGE_ROUTES;
 
-export const router = (isAuthenticated: boolean, isAdmin: boolean) =>
-  createBrowserRouter([
-    {
-      path: SIGNIN,
-      element: <SignIn />,
-    },
-    {
-      path: SIGNUP,
-      element: <SignUp />,
-    },
-    {
-      element: <ProtectedRoute isAuthenticated={isAuthenticated} />,
-      children: [
-        {
-          path: TRAVEL_ROUTES,
-          element: (
-            <>
-              <Header />
-              <TravelRoute />
-            </>
-          ),
-        },
-        {
-          path: FAVORITES,
-          element: (
-            <>
-              <Header />
-              <Favorites />
-            </>
-          ),
-        },
-        {
-          path: HOME,
-          element: (
-            <>
-              <Header />
-              <Home />
-            </>
-          ),
-        },
-        {
-          path: PROFILE,
-          element: (
-            <>
-              <Header />
-              <Profile />
-            </>
-          ),
-        },
-        {
-          element: <ProtectedRoute isAuthenticated={isAdmin} />,
-          children: [
-            {
-              path: CREATE_ROUTE,
-              element: (
-                <>
-                  <Header />
-                  <CreateRoute />
-                </>
-              ),
-            },
-            {
-              path: GUIDES,
-              element: (
-                <>
-                  <Header />
-                  <Guides />
-                </>
-              ),
-            },
-          ],
-        },
-      ],
-    },
-    {
-      path: "*",
-      element: <div>Not found</div>,
-    },
-  ]);
+export const router = createBrowserRouter([
+  {
+    path: SIGNIN,
+    element: <SignIn />,
+  },
+  {
+    path: SIGNUP,
+    element: <SignUp />,
+  },
+  {
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: TRAVEL_ROUTES,
+        element: (
+          <>
+            <Header />
+            <TravelRoute />
+          </>
+        ),
+      },
+      {
+        path: FAVORITES,
+        element: (
+          <>
+            <Header />
+            <Favorites />
+          </>
+        ),
+      },
+      {
+        path: HOME,
+        element: (
+          <>
+            <Header />
+            <Home />
+          </>
+        ),
+      },
+      {
+        path: PROFILE,
+        element: (
+          <>
+            <Header />
+            <Profile />
+          </>
+        ),
+      },
+      {
+        element: <ProtectedRoute />,
+        children: [
+          {
+            path: CREATE_ROUTE,
+            element: (
+              <>
+                <Header />
+                <CreateRoute />
+              </>
+            ),
+          },
+          {
+            path: GUIDES,
+            element: (
+              <>
+                <Header />
+                <Guides />
+              </>
+            ),
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <div>Not found</div>,
+  },
+]);
