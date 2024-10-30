@@ -12,9 +12,12 @@
     font-size: 24px;
   }
 
-  input {
+  input,
+  select {
     padding: 14px 20px;
     border-radius: 10px;
+    border: none;
+    background-color: #fff;
   }
 
   .inputCell {

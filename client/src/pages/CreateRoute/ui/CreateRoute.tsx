@@ -7,9 +7,10 @@ import {
   RouteDataDto,
   TravelRouteService,
 } from "@/entities/trabelRoute";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { NotificationService } from "@/shared/utils/notificationService";
 import { UPDATE_TRAVEL_ROUTES_EVENT } from "@/shared/utils/constants";
+import { Guide, GuideService } from "@/entities/guide";
 
 const initialData: CreateRouteData = {
   title: "",
@@ -23,8 +24,27 @@ const initialData: CreateRouteData = {
   time: ["", ""],
 };
 
+const categoryOptions: { value: string; title: string }[] = [
+  { value: "romance", title: "Romance" },
+  { value: "adventure", title: "Adventure" },
+  { value: "action", title: "Action" },
+  { value: "thriller", title: "Thriller" },
+];
+
+const regionOptions: { value: string; title: string }[] = [
+  { value: "minsk", title: "Minsk" },
+  { value: "gomel", title: "Gomel" },
+  { value: "brest", title: "Brest" },
+];
+
 export function CreateRoute() {
   const [formData, setFormData] = useState<CreateRouteData>(initialData);
+  const [guides, setGuides] = useState<Guide[]>([]);
+
+  const handleGetGuides = async () => {
+    const res = await GuideService.getGuides();
+    setGuides(res.data);
+  };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -39,6 +59,10 @@ export function CreateRoute() {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  useEffect(() => {
+    handleGetGuides();
+  }, []);
 
   return (
     <main className={styles.articlesPage}>
@@ -87,19 +111,37 @@ export function CreateRoute() {
         <div className={styles.inputCells}>
           <div className={styles.inputCell}>
             <label htmlFor="">Категория</label>
-            <input type="text" placeholder="Выберите значение" />
+            <select>
+              {categoryOptions.map(({ value, title }) => (
+                <option key={value} value={value}>
+                  {title}
+                </option>
+              ))}
+            </select>
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Регион</label>
-            <input type="text" placeholder="Выберите значение" />
+            <select>
+              {regionOptions.map(({ value, title }) => (
+                <option key={value} value={value}>
+                  {title}
+                </option>
+              ))}
+            </select>
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Карта маршрута</label>
-            <input type="text" placeholder="Выберите значение" />
+            <select>{}</select>
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Гид</label>
-            <input type="text" placeholder="Выберите значение" />
+            <select>
+              {guides.map(({ id, name, surname, patronymic }) => (
+                <option key={id} value={`${name} ${surname} ${patronymic}`}>
+                  {name} {surname} {patronymic}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
         <div className={styles.timeArea}>
