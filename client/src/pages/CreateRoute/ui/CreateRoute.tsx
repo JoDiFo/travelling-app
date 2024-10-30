@@ -141,6 +141,7 @@ export function CreateRoute() {
               onChange={handleSelect}
               value={formData.category}
             >
+              <option>Выбирите значение</option>
               {CATEGORY_OPTIONS.map(({ value, title }) => (
                 <option key={value} value={value}>
                   {title}
@@ -153,8 +154,9 @@ export function CreateRoute() {
             <select
               name="region"
               onChange={handleSelect}
-              value={formData.category}
+              value={formData.region}
             >
+              <option>Выбирите значение</option>
               {REGION_OPTIONS.map(({ value, title }) => (
                 <option key={value} value={value}>
                   {title}
@@ -164,11 +166,8 @@ export function CreateRoute() {
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Карта маршрута</label>
-            <select
-              name="map"
-              onChange={handleSelect}
-              value={formData.category}
-            >
+            <select name="map" onChange={handleSelect} value={formData.map}>
+              <option>Выбирите значение</option>
               {IMAGE_MAP.map(({ id, title }) => (
                 <option key={id} value={id}>
                   {title}
@@ -178,11 +177,8 @@ export function CreateRoute() {
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Гид</label>
-            <select
-              name="guide"
-              onChange={handleSelect}
-              value={formData.category}
-            >
+            <select name="guide" onChange={handleSelect} value={formData.guide}>
+              <option>Выбирите значение</option>
               {guides.map(({ id, name, surname, patronymic }) => (
                 <option key={id} value={`${name} ${surname} ${patronymic}`}>
                   {name} {surname} {patronymic}
