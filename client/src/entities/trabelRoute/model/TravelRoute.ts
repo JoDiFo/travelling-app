@@ -1,3 +1,5 @@
+import { Guide } from "@/entities/guide";
+
 export interface TravelRoute {
   id: string;
   title: string;
@@ -6,7 +8,7 @@ export interface TravelRoute {
   description: string;
   category: string;
   map: string;
-  guide: string;
+  guide: Guide;
   region: string;
   time: string[];
   isFavorite?: boolean;
@@ -21,7 +23,7 @@ export interface TravelRouteResponse {
   description: string;
   category: string;
   map: string;
-  guide: string;
+  guide: Guide;
   region: string;
   time: string[];
 }
@@ -38,7 +40,7 @@ export interface CreateRouteData {
   time: string[];
 }
 
-export class RouteDataDto implements Omit<TravelRoute, "id"> {
+export class RouteDataDto implements Omit<TravelRoute, "id" | "guide"> {
   title: string;
   duration: number;
   cost: number;

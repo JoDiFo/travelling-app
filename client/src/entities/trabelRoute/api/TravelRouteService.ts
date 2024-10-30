@@ -3,7 +3,7 @@ import { TravelRoute } from "../model/TravelRoute";
 import { AxiosResponse } from "axios";
 
 export class TravelRouteService {
-  static async createRoute(travelRoute: Omit<TravelRoute, "id">): Promise<void> {
+  static async createRoute(travelRoute: Omit<TravelRoute, "id" | "guide">): Promise<void> {
     api.post("/routes", travelRoute);
   }
 

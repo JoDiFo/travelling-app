@@ -59,7 +59,7 @@ export function RouteCard({
             <span>Длинтельность:</span> {duration}
           </p>
           <p>
-            <span>Гид:</span> {guide}
+            <span>Гид:</span> {guide.name} {guide.surname} {guide.patronymic}
           </p>
         </div>
         <div className={isBooked ? styles.right : styles.notBooked}>

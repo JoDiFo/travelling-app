@@ -20,7 +20,7 @@ export class RoutesService {
   ) {}
 
   async getAllRoutes(): Promise<Route[]> {
-    return this.routesRepository.find();
+    return this.routesRepository.find({ relations: ["guide", "region"] });
   }
 
   async getRouteById(routeId: string): Promise<Route> {
