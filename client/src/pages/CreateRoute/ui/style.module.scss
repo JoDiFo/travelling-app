@@ -25,6 +25,7 @@
     flex-direction: column;
     gap: 10px;
     flex-grow: 1;
+    margin-top: 20px;
   }
 
   .inputCells {
@@ -32,13 +33,8 @@
     gap: 30px;
   }
 
-  .fileDownload {
-    margin-top: 20px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    margin-bottom: 20px;
+  .description {
+    height: 100px;
   }
 
   .timeArea {

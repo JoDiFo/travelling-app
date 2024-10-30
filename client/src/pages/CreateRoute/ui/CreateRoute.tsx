@@ -52,6 +52,10 @@ export function CreateRoute() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   useEffect(() => {
     handleGetGuides();
   }, []);
@@ -95,15 +99,26 @@ export function CreateRoute() {
             />
           </div>
         </div>
-        <label htmlFor="">Файл со статьей (только pdf)</label>
-        <div className={styles.fileDownload}>
-          <input type="image" />
-          <img src={FileIcon} alt="file icon" />
+        <div className={styles.inputCell}>
+          <label htmlFor="">Описание</label>
+          <input
+          className={styles.description}
+            type="text"
+            placeholder="Введите данные"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div className={styles.inputCells}>
           <div className={styles.inputCell}>
             <label htmlFor="">Категория</label>
-            <select>
+            <select
+              name="category"
+              onChange={handleSelect}
+              value={formData.category}
+            >
               {CATEGORY_OPTIONS.map(({ value, title }) => (
                 <option key={value} value={value}>
                   {title}
@@ -113,7 +128,11 @@ export function CreateRoute() {
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Регион</label>
-            <select>
+            <select
+              name="region"
+              onChange={handleSelect}
+              value={formData.category}
+            >
               {REGION_OPTIONS.map(({ value, title }) => (
                 <option key={value} value={value}>
                   {title}
@@ -123,7 +142,11 @@ export function CreateRoute() {
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Карта маршрута</label>
-            <select>
+            <select
+              name="map"
+              onChange={handleSelect}
+              value={formData.category}
+            >
               {IMAGE_MAP.map(({ id, title }) => (
                 <option key={id} value={id}>
                   {title}
@@ -133,7 +156,11 @@ export function CreateRoute() {
           </div>
           <div className={styles.inputCell}>
             <label htmlFor="">Гид</label>
-            <select>
+            <select
+              name="guide"
+              onChange={handleSelect}
+              value={formData.category}
+            >
               {guides.map(({ id, name, surname, patronymic }) => (
                 <option key={id} value={`${name} ${surname} ${patronymic}`}>
                   {name} {surname} {patronymic}
