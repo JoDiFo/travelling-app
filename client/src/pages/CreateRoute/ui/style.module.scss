@@ -46,9 +46,17 @@
   }
 
   .keywords {
+    border: 1px solid #00000076;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+
+    p {
+      font-size: 18px;
+      opacity: 0.7;
+    }
   }
 
   .buttons {

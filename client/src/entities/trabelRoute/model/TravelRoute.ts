@@ -8,7 +8,7 @@ export interface TravelRoute {
   map: string;
   guide: string;
   region: string;
-  time: [string, string];
+  time: string[];
   isFavorite?: boolean;
   isBooked?: boolean;
 }
@@ -23,7 +23,7 @@ export interface TravelRouteResponse {
   map: string;
   guide: string;
   region: string;
-  time: [string, string];
+  time: string[];
 }
 
 export interface CreateRouteData {
@@ -35,7 +35,7 @@ export interface CreateRouteData {
   map: string;
   guide: string;
   region: string;
-  time: [string, string];
+  time: string[];
 }
 
 export class RouteDataDto implements Omit<TravelRoute, "id"> {
@@ -47,7 +47,7 @@ export class RouteDataDto implements Omit<TravelRoute, "id"> {
   map: string;
   guide: string;
   region: string;
-  time: [string, string];
+  time: string[];
 
   constructor(route: CreateRouteData) {
     this.title = route.title;

@@ -1,7 +1,6 @@
 import { Button } from "@/shared/ui/Button";
 import styles from "./style.module.scss";
 import { Keyword } from "@/shared/ui/Keyword";
-import FileIcon from "@/shared/assets/File.svg";
 import {
   CreateRouteData,
   RouteDataDto,
@@ -26,12 +25,13 @@ const initialData: CreateRouteData = {
   map: "",
   guide: "",
   region: "",
-  time: ["", ""],
+  time: [],
 };
 
 export function CreateRoute() {
   const [formData, setFormData] = useState<CreateRouteData>(initialData);
   const [guides, setGuides] = useState<Guide[]>([]);
+  const [time, setTime] = useState("");
 
   const handleGetGuides = async () => {
     const res = await GuideService.getGuides();
@@ -40,6 +40,10 @@ export function CreateRoute() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    if (formData.time.length === 0) {
+      return;
+    }
 
     TravelRouteService.createRoute(new RouteDataDto(formData)).then(() => {
       NotificationService.dispatchEvent(UPDATE_TRAVEL_ROUTES_EVENT);
@@ -54,6 +58,22 @@ export function CreateRoute() {
 
   const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleChangeTime = (e: ChangeEvent<HTMLInputElement>) => {
+    setTime(e.target.value);
+  };
+
+  const handleAddTime = () => {
+    setFormData({ ...formData, time: [...formData.time, time] });
+    setTime("");
+  };
+
+  const handleDeleteTime = (value: string) => () => {
+    setFormData({
+      ...formData,
+      time: [...formData.time.filter((time) => time !== value)],
+    });
   };
 
   useEffect(() => {
@@ -102,7 +122,7 @@ export function CreateRoute() {
         <div className={styles.inputCell}>
           <label htmlFor="">Описание</label>
           <input
-          className={styles.description}
+            className={styles.description}
             type="text"
             placeholder="Введите данные"
             name="description"
@@ -172,15 +192,25 @@ export function CreateRoute() {
         <div className={styles.timeArea}>
           <div className={styles.inputCell}>
             <label htmlFor="">Даты бронирования</label>
-            <input type="text" placeholder="Введите данные" />
+            <input
+              type="text"
+              placeholder="Введите данные"
+              onChange={handleChangeTime}
+              value={time}
+            />
           </div>
-          <div className={styles.keywords}>
-            <Keyword>ключевое</Keyword>
-            <Keyword>ключевое</Keyword>
-            <Keyword>ключевое</Keyword>
-            <Keyword>ключевое</Keyword>
-            <Keyword>ключевое</Keyword>
-          </div>
+          <Button onClick={handleAddTime} type="button">
+            Добавить
+          </Button>
+        </div>
+        <div className={styles.keywords}>
+          {formData.time.length ? (
+            formData.time.map((time) => (
+              <Keyword onClick={handleDeleteTime(time)}>{time}</Keyword>
+            ))
+          ) : (
+            <p>Нужно добавить как минимум одно время</p>
+          )}
         </div>
 
         <div className={styles.buttons}>
