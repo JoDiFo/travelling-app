@@ -45,7 +45,7 @@ export function RouteCard({
 
   return (
     <div className={styles.card}>
-      <Link to={PAGE_ROUTES.TRAVEL_ROUTES} state={id}></Link>
+      <Link to={PAGE_ROUTES.TRAVEL_ROUTES} state={{ guideId: id }}></Link>
       {isModalOpen ? (
         <ModalWindow onClose={handleCloseModal}>
           <BookRoute onSubmit={handleCloseModal} routeId={id} />

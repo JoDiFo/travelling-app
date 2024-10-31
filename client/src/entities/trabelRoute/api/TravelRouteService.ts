@@ -8,7 +8,7 @@ export class TravelRouteService {
   }
 
   static async getRoute(routeId: string): Promise<AxiosResponse<TravelRoute>> {
-    return api.get(`/routes${routeId}`);
+    return api.get(`/routes/${routeId}`);
   }
 
   static async getRoutes(): Promise<AxiosResponse<TravelRoute[]>> {

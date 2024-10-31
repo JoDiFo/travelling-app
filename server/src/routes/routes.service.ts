@@ -24,7 +24,10 @@ export class RoutesService {
   }
 
   async getRouteById(routeId: string): Promise<Route> {
-    return this.routesRepository.findOne({ where: { id: routeId } });
+    return this.routesRepository.findOne({
+      where: { id: routeId },
+      relations: ["guide", "region"],
+    });
   }
 
   // For admin
@@ -36,7 +39,8 @@ export class RoutesService {
     const r = await this.regionRepository.findOne({
       where: { name: route.region.name },
     });
-    const m = await this.mapRepository.findOne({ where: { id: route.map.id } });
+    // const m = await this.mapRepository.findOne({ where: { id: route.map.id } });
+    const m = route.map;
 
     return await this.routesRepository.save({
       ...route,

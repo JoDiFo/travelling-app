@@ -32,7 +32,7 @@ export class Route {
   region: Region;
 
   @ManyToOne(() => Map, region => region.routes)
-  map: Map;
+  map: string;
 
   @Column('text', { array: true })
   time: string[];
