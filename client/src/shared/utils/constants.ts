@@ -74,10 +74,8 @@ export const IMAGE_MAP = [
 ];
 
 export const CATEGORY_OPTIONS: { value: string; title: string }[] = [
-  { value: "romance", title: "Romance" },
-  { value: "adventure", title: "Adventure" },
-  { value: "action", title: "Action" },
-  { value: "thriller", title: "Thriller" },
+  { value: "foot", title: "Пеший" },
+  { value: "bus", title: "Автобусный" },
 ];
 
 export const REGION_OPTIONS: { value: string; title: string }[] = [
