@@ -1,35 +1,35 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { Role } from './roles/roles.model';
-import { User } from './users/user.model';
-import { AuthModule } from './auth/auth.module';
-import { RolesModule } from './roles/roles.module';
-import { UsersModule } from './users/users.module';
-import { FavouritesModule } from './favourites/favourites.module';
-import { Favourite } from './favourites/favourites.model';
-import { RoutesModule } from './routes/routes.module';
-import { Route } from './routes/routes.model';
-import { BookingModule } from './booking/booking.module';
-import { Booking } from './booking/booking.model';
-import { GuidesModule } from './guides/guides.module';
-import { Guide } from './guides/guide.model';
-import { RegionsModule } from './regions/regions.module';
-import { MapsModule } from './maps/maps.module';
-import { Map } from './maps/maps.model';
+import { Module } from "@nestjs/common";
+import { AppController } from "./app.controller";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { Role } from "./roles/roles.model";
+import { User } from "./users/user.model";
+import { AuthModule } from "./auth/auth.module";
+import { RolesModule } from "./roles/roles.module";
+import { UsersModule } from "./users/users.module";
+import { FavouritesModule } from "./favourites/favourites.module";
+import { Favourite } from "./favourites/favourites.model";
+import { RoutesModule } from "./routes/routes.module";
+import { Route } from "./routes/routes.model";
+import { BookingModule } from "./booking/booking.module";
+import { Booking } from "./booking/booking.model";
+import { GuidesModule } from "./guides/guides.module";
+import { Guide } from "./guides/guide.model";
+import { RegionsModule } from "./regions/regions.module";
+import { MapsModule } from "./maps/maps.module";
+import { Map } from "./maps/maps.model";
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
+      type: "postgres",
+      host: "localhost",
       port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'travel_app',
+      username: "postgres",
+      password: "postgres",
+      database: "travel_app",
       entities: [User, Role, Favourite, Route, Booking, Guide, Map],
       synchronize: true,
-      autoLoadEntities: true
+      autoLoadEntities: true,
     }),
     AuthModule,
     RolesModule,

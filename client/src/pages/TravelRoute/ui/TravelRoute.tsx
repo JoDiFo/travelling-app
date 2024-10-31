@@ -30,10 +30,8 @@ export function TravelRoute() {
     return "Loading...";
   }
 
-  const { title, category, description, region, duration, guide, map } = route;
-  console.log(map);
-  const img = IMAGE_MAP.find((imageMap) => imageMap.id === map)?.imageUrl;
-  console.log(img);
+  const { title, category, description, region, duration, guide, mapIndex } = route;
+  const img = IMAGE_MAP.find((imageMap) => imageMap.id === mapIndex)?.imageUrl;
 
   return (
     <main className={styles.articlesPage}>

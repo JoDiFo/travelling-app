@@ -7,7 +7,7 @@ export interface TravelRoute {
   cost: number;
   description: string;
   category: string;
-  map: string;
+  mapIndex: string;
   guide: Guide;
   region: {
     id: string;
@@ -52,7 +52,7 @@ export class RouteDataDto implements Omit<TravelRoute, "id" | "guide" | "region"
   cost: number;
   description: string;
   category: string;
-  map: string;
+  mapIndex: string;
   guide: string;
   region: string;
   time: string[];
@@ -63,7 +63,7 @@ export class RouteDataDto implements Omit<TravelRoute, "id" | "guide" | "region"
     this.cost = Number(route.cost);
     this.description = route.description;
     this.category = route.category;
-    this.map = route.map;
+    this.mapIndex = route.map;
     this.guide = route.guide.split(" ")[0];
     this.region = route.region;
     this.time = route.time;

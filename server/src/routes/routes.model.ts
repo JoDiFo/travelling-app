@@ -1,13 +1,21 @@
-import { Booking } from 'src/booking/booking.model';
-import { Favourite } from 'src/favourites/favourites.model';
-import { Guide } from 'src/guides/guide.model';
-import { Map } from 'src/maps/maps.model';
-import { Region } from 'src/regions/regions.model';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, ManyToOne, OneToOne } from 'typeorm';
+import { Booking } from "src/booking/booking.model";
+import { Favourite } from "src/favourites/favourites.model";
+import { Guide } from "src/guides/guide.model";
+import { Map } from "src/maps/maps.model";
+import { Region } from "src/regions/regions.model";
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToMany,
+  ManyToOne,
+  OneToOne,
+} from "typeorm";
 
 @Entity()
 export class Route {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column()
@@ -25,21 +33,24 @@ export class Route {
   @Column()
   category: string;
 
-  @ManyToOne(() => Guide, guide => guide.routes)
+  @Column()
+  mapIndex: string;
+
+  @ManyToOne(() => Guide, (guide) => guide.routes)
   guide: Guide;
 
-  @ManyToOne(() => Region, region => region.routes)
+  @ManyToOne(() => Region, (region) => region.routes)
   region: Region;
 
-  @ManyToOne(() => Map, region => region.routes)
-  map: string;
+  @ManyToOne(() => Map, (region) => region.routes)
+  map: string | null;
 
-  @Column('text', { array: true })
+  @Column("text", { array: true })
   time: string[];
 
-  @OneToMany(type => Booking, booking => booking.route)
+  @OneToMany((type) => Booking, (booking) => booking.route)
   bookings: Booking[];
 
-  @OneToMany(type => Favourite, favourite => favourite.route)
-  favourites: Favourite[]
+  @OneToMany((type) => Favourite, (favourite) => favourite.route)
+  favourites: Favourite[];
 }
