@@ -22,10 +22,14 @@ export function Profile() {
       return;
     }
 
-    const res = await TravelRouteService.getBookedRoutes(userId);
+    const bookedRoutes = await TravelRouteService.getBookedRoutes(userId);
+    const allRoutes = await TravelRouteService.getRoutes();
 
-    res.data.forEach((route) => (route.isBooked = true));
-    setTravelRoutes(res.data);
+    const res = allRoutes.data.filter((route) =>
+      bookedRoutes.data.find((bookedRoute) => bookedRoute.id === route.id)
+    );
+
+    setTravelRoutes(res);
   };
 
   useEffect(() => {

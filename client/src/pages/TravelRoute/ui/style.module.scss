@@ -29,12 +29,16 @@
   .credits {
     margin-top: 10px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
 
     p {
-      font-size: 14px;
-      color: #686868;
+      font-size: 18px;
     }
+
+    span {
+      font-weight: 700;
+    } 
   }
 
   .keywords {
